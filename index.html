@@ -5,37 +5,52 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>3d tag</title>
-<style>
-.tagBall {
-	width:500px;
-	height:500px;
-	position:absolute;
-	top:50%;
-	left:50%;
-  transform: translate(-50%,-50%);
-}
-.tag {
-	display:block;
-	position:absolute;
-	left:0px;
-	top:0px;
-	color:#000;
-	text-decoration:none;
-	font-size:15px;
-	font-family:"微软雅黑";
-	font-weight:bold;
-}
-.tag:hover {
-	border:1px solid #ccc;
-}
-.form_vav td {
-	color:#a78b6f;
-}
-</style>
+  <style>
+    .tagBall {
+      width:500px;
+      height:500px;
+      position:absolute;
+      top:50%;
+      left:50%;
+      transform: translate(-50%,-50%);
+    }
+    .tag {
+      display:block;
+      position:absolute;
+      left:0px;
+      top:0px;
+      color:#000;
+      text-decoration:none;
+      font-size:15px;
+      font-family:"微软雅黑";
+      font-weight:bold;
+    }
+    .tag:hover {
+      border:1px solid #ccc;
+    }
+    .form_vav td {
+      color:#a78b6f;
+    }
+    .menu-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      padding: 10px 20px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .menu-button:hover {
+      background-color: #0056b3;
+    }
+  </style>
 </head>
 
 <body>
   <div class="tagBall">
+    <!-- Existing tags go here -->
     <a href="src/Funny-demo/Whale/whale.html" target="_blank" class="tag" title="效果预览">whale</a>
     <a href="src/Funny-demo/Doraemon/index.html" target="_blank" class="tag" title="效果预览">哆啦A梦</a>
     <a href="src/Funny-demo/triangle.html" target="_blank" class="tag" title="效果预览">三角形特效</a>
@@ -45,7 +60,7 @@
     <a href="src/Funny-demo/CSS3-hover/index.html" target="_blank" class="tag" title="效果预览">CSS3鼠标悬停特效</a>
     <a href="src/Funny-demo/beanstalk/index.html" target="_blank" class="tag" title="效果预览">魔豆</a>
     <a href="src/Funny-demo/blackhole/index.html" target="_blank" class="tag" title="效果预览">黑洞</a>
-     <a href="src/Canvas-demo/tearCloth.html" target="_blank" class="tag" title="效果预览">Tearable Cloth</a>
+    <a href="src/Canvas-demo/tearCloth.html" target="_blank" class="tag" title="效果预览">Tearable Cloth</a>
     <a href="src/Canvas-demo/mechanical_grass/grass.html" target="_blank" class="tag" title="效果预览">机械草</a>
     <a href="src/Canvas-demo/nets.html" target="_blank" class="tag" title="效果预览">nets</a>
     <a href="src/Canvas-demo/nets_black/index.html" target="_blank" class="tag" title="效果预览">星空网络背景</a>
@@ -76,9 +91,8 @@
     <a href="src/Game-demo/caisse/index.html" target="_blank" class="tag" title="效果预览">重力感应积木</a>
     <a href="src/Svg-demo/theCreepyMouth/index.html" target="_blank" class="tag" title="效果预览">theCreepyMouth</a>
     <a href="src/Svg-demo/butterFlies/index.html" target="_blank" class="tag" title="效果预览">蝴蝶飞舞</a>
-</div>
-<script src="./3dTag.js"></script>
-
+  </div>
+  <button class="menu-button" onclick="window.location.href='menu.html'">更换模式</button>
+  <script src="./3dTag.js"></script>
 </body>
 </html>
-
