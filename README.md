@@ -2,7 +2,7 @@
 This is a collection of HTML 5 and CSS 3 cool dazzle the special effects.
 ## develop
 ```bash
-git clone https://github.com/Gnipbao/h5-test.git
+git clone 
 ```
 ```bash
 npm install
@@ -14,4 +14,4 @@ Then visit http://127.0.0.1:3006/menu.html in your browser.
 
 ### preview
 
- [online demo](http://gnipbao.github.io/h5-test/menu.html)
+ [online demo](https://h5.lyone.xyz)
