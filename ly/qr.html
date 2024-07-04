@@ -1,0 +1,107 @@
+<!-- 
+更多精彩 https://lyone.xyz/ 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LY二维码生成</title>
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs2@0.0.2/qrcode.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jsqr/dist/jsQR.js"></script>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #f0f0f0;
+      color: #333;
+    }
+    .container {
+      width: 90%;
+      max-width: 500px;
+      background-color: white;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      text-align: center;
+    }
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    input, button {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0;
+      font-size: 16px;
+    }
+    #qrcode, #qr-result {
+      margin-top: 20px;
+    }
+    #qr-result {
+      font-size: 18px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>二维码生成</h1>
+    <input type="text" id="input-text" placeholder="输入内容">
+    <button id="generate-btn">生成新的二维码</button>
+    <div id="qrcode"></div>
+    <input type="file" id="qr-file" accept="image/*">
+    <div id="qr-result"></div>
+  </div>
+  <script>
+    document.getElementById('generate-btn').addEventListener('click', function() {
+      var inputText = document.getElementById('input-text').value;
+      if (inputText) {
+        // 清除之前的二维码
+        document.getElementById('qrcode').innerHTML = "";
+        // 生成新的二维码
+        new QRCode(document.getElementById('qrcode'), {
+          text: inputText,
+          width: 300,
+          height: 300,
+          colorDark: "#000000",
+          colorLight: "#ffffff",
+          correctLevel: QRCode.CorrectLevel.H
+        });
+      } else {
+        alert("Please enter some text.");
+      }
+    });
+
+    document.getElementById('qr-file').addEventListener('change', function(event) {
+      var file = event.target.files[0];
+      if (file) {
+        var reader = new FileReader();
+        reader.onload = function() {
+          var img = new Image();
+          img.src = reader.result;
+          img.onload = function() {
+            var canvas = document.createElement('canvas');
+            var context = canvas.getContext('2d');
+            canvas.width = img.width;
+            canvas.height = img.height;
+            context.drawImage(img, 0, 0, canvas.width, canvas.height);
+            var imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+            var code = jsQR(imageData.data, canvas.width, canvas.height);
+            if (code) {
+              document.getElementById('qr-result').innerText = 'QR Code Content: ' + code.data;
+            } else {
+              document.getElementById('qr-result').innerText = 'No QR code found.';
+            }
+          };
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+  </script>
+</body>
+</html>
